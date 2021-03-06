@@ -6,8 +6,10 @@ export const findMatchingUtilities = (
 ): SearchResult[] => {
   const regex = new RegExp(searchPhrase, "i");
   const res: SearchResult[] = [];
+
   Object.entries(utilities).forEach(([utility, cssValue]) => {
     if (
+      regex.test(`${utility}`) ||
       regex.test(`${Object.values(cssValue)[0]}`) ||
       regex.test(`${Object.keys(cssValue)[0]}`)
     ) {

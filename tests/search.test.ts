@@ -17,6 +17,20 @@ Deno.test(
   }
 );
 
+Deno.test(
+  "Return results match both the headwind names and css values when possible",
+  () => {
+    const fuzzySearchString = `between`;
+    const expected = [
+      { "content-between": { alignContent: "space-between" } },
+      { "justify-between": { justifyContent: "space-between" } },
+    ];
+    const actual = search(fuzzySearchString);
+    assertEquals(actual[0], expected[0]);
+    assertEquals(actual[1], expected[1]);
+  }
+);
+
 Deno.test("Return multiple results matching a given css property name", () => {
   const cssProp = `fontStyle`;
   const expected = [

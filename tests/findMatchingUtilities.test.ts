@@ -56,18 +56,16 @@ Deno.test(
   "Find all matching utility classes given a number search phrase",
   () => {
     const searchPhrase = "900";
-    const actual = [
-      {
-        "font-black": {
-          fontWeight: 900,
-        },
+    const expected = {
+      "font-black": {
+        fontWeight: 900,
       },
-    ];
-    const matches = findMatchingUtilities(searchPhrase, headwindUtilities);
+    };
+    const actual = findMatchingUtilities(searchPhrase, headwindUtilities);
     assertArrayIncludes(
       actual,
-      [matches[0]],
-      `Expect ${String(matches[0])} to be included`
+      [expected],
+      `Expect ${JSON.stringify(expected)} to be included`
     );
   }
 );
