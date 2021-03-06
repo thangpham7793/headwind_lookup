@@ -6,14 +6,6 @@ Deno.test("Throws when no search phrase is given", () => {
   assertThrows(() => validateSearchPhrase(emptySearchPhrase));
 });
 
-Deno.test(
-  "Throws when a string search phrase is shorter than 3 characters",
-  () => {
-    const shortSearchPhrase = "ha";
-    assertThrows(() => validateSearchPhrase(shortSearchPhrase));
-  }
-);
-
 Deno.test("Returns the search string when it is valid", () => {
   const validSearchString = "around";
   const expected = "around";
