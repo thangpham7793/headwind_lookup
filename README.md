@@ -3,8 +3,8 @@ A simple CLI for looking up headwind classes using Deno
 
 To install:
 
-- Download `hw` binary & save it to your `bin` folder
-- Clone and compile with Deno OR
+- Download `hw` binary or clone repo and compile with Deno 
+- Then save it to your `bin` folder
 
 To use:
 
