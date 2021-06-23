@@ -1,4 +1,4 @@
-export { red } from "https://deno.land/std/fmt/colors.ts";
+export { red, bgRgb24 } from "https://deno.land/std/fmt/colors.ts";
 export {
   assertArrayIncludes,
   assertThrows,
