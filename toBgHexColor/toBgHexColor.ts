@@ -4,5 +4,5 @@ import { toHexColor } from "./toHexColor.ts";
 
 export function toBgHexColor(color: string) {
   if (!isHexColorStr(color)) return color;
-  return bgRgb24("Pallete", toHexColor(color));
+  return bgRgb24("      ", toHexColor(color));
 }
