@@ -1,5 +1,5 @@
 import { assertEquals } from "../deps.ts";
-import { isHexColorStr } from "../toBgHexColor/index.ts";
+import { isHexColorStr } from "./isHexColorStr.ts";
 
 Deno.test("Given a hex color string When valid Should confirm", () => {
   const colorStr = "#3d4852";

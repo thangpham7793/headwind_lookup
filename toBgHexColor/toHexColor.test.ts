@@ -1,5 +1,5 @@
 import { assertEquals } from "../deps.ts";
-import { toHexColor } from "../toBgHexColor/index.ts";
+import { toHexColor } from "./toHexColor.ts";
 
 Deno.test(
   "Given a hex color string When valid Should convert to hex number format",

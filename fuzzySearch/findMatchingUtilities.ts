@@ -1,4 +1,4 @@
-import { Utilities, SearchResult } from "./types.d.ts";
+import { Utilities, SearchResult } from "../types.d.ts";
 
 export const findMatchingUtilities = (
   searchPhrase: string,

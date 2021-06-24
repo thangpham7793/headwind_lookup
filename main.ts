@@ -1,10 +1,8 @@
 import { programme } from "./programme.ts";
+import logAndExitOnFail from "./common/logAndExitOnFail.ts";
 
 function main() {
-  const {
-    args: [searchTerm],
-  } = Deno;
-  programme(searchTerm);
+  logAndExitOnFail(programme)(Deno.args);
 }
 
 main();

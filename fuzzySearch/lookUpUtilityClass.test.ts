@@ -1,4 +1,4 @@
-import { lookUpUtilityClass } from "../lookUpUtilityClass.ts";
+import { lookUpUtilityClass } from "./lookUpUtilityClass.ts";
 import { assertEquals } from "../deps.ts";
 import { headwindUtilities } from "../headwind.ts";
 

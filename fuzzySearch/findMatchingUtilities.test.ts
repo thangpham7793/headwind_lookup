@@ -1,4 +1,4 @@
-import { findMatchingUtilities } from "../findMatchingUtilities.ts";
+import { findMatchingUtilities } from "./findMatchingUtilities.ts";
 import { assertArrayIncludes } from "../deps.ts";
 import { headwindUtilities } from "../headwind.ts";
 

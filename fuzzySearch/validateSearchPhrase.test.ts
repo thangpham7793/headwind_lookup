@@ -1,4 +1,4 @@
-import { validateSearchPhrase } from "../validateSearchPhrase.ts";
+import { validateSearchPhrase } from "./validateSearchPhrase.ts";
 import { assertThrows, assertEquals } from "../deps.ts";
 
 Deno.test("Throws when no search phrase is given", () => {

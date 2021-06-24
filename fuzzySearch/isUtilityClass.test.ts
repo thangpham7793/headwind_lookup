@@ -1,4 +1,4 @@
-import { isUtilityClass } from "../isUtilityClass.ts";
+import { isUtilityClass } from "./isUtilityClass.ts";
 import { assertEquals } from "../deps.ts";
 
 Deno.test(
