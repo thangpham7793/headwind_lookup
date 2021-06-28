@@ -1,0 +1,53 @@
+name: PR Builder
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Setup repo
+        uses: actions/checkout@v2
+
+      - uses: denoland/setup-deno@v1
+        with:
+          deno-version: v1.x
+
+      - name: Cache deno installation and deno.land dependencies
+        uses: actions/cache@v2
+        with:
+          key: ${{ runner.os }}-deno-${{ hashFiles('**/*') }}
+          restore-keys: ${{ runner.os }}-deno-
+          path: |
+            /home/runner/.deno
+            /home/runner/.cache/deno/deps/https/deno.land
+
+      - name: Install or update deno installation
+        run: |
+          export DENO_INSTALL="/home/runner/.deno"
+          export PATH="${DENO_INSTALL}/bin:${PATH}"
+          mkdir -p "${DENO_INSTALL}"
+          deno upgrade || (
+            curl -fsSL https://deno.land/x/install/install.sh > "${DENO_INSTALL}/.sh";
+            sh "${DENO_INSTALL}/.sh"
+          )
+          deno --version
+          deno info
+          echo "DENO_INSTALL=${DENO_INSTALL}" >> "${GITHUB_ENV}"
+          echo "PATH=${PATH}" >> "${GITHUB_ENV}"
+
+      - name: Run test
+        run: deno test --fail-fast
+
+      - name: check lint
+        continue-on-error: true
+        run: |
+          deno lint --unstable --json
+
+      - name: check formatting
+        continue-on-error: true
+        run: |
+          deno fmt --check
